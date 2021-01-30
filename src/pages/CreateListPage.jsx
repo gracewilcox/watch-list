@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik'
+import { useHistory } from 'react-router-dom'
 import { Box, Button, PageContent, Stack, Heading, Paragraph, InputField, FieldStack } from 'bumbag'
 
 const CreateListPage = () => {
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
+
   return (
     <PageContent>
       <Stack>
@@ -11,9 +14,10 @@ const CreateListPage = () => {
         <Paragraph>Create your own personal movie list here</Paragraph>
         <Formik
           initialValues={{ listName: ''}}
-          onSubmit={async (data) => {
+          onSubmit={ (data) => {
             setLoading(true);
             console.log(data);
+            history.push('/1234')
             setLoading(false);
           }}
         >
