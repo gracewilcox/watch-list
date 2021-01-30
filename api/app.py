@@ -55,16 +55,32 @@ def addToList():
     #movieTitle = request.form['title']
     
     #hard code test data
-    ID = "HNBVIIuqwr"
-    movieTitle = "Sound of Music"
+    ID = "nRy7BguKzk"
+    movieTitle = "Inception"
     
-    #save title to array in db
     data = config.listings.find_one({"id":ID})
     listName = data["name"]
     movies = data["movies"]
     movies.append(movieTitle)
     config.listings.update({"id":ID}, {"$set":{"movies":movies}})
     return "Added"
+    
+    
+@app.route('/deleteFromList') #, methods = ['POST'] when form created, add the method
+def deleteFromList():
+    #ID = request.form['id']  #update the form request ids
+    #movieTitle = request.form['title']
+    
+    #hard code test data
+    ID = "nRy7BguKzk"
+    movieTitle = "Inception"
+
+    data = config.listings.find_one({"id":ID})
+    listName = data["name"]
+    movies = data["movies"]
+    movies.remove(movieTitle)
+    config.listings.update({"id":ID}, {"$set":{"movies":movies}})
+    return "Deleted"
     
 
 @app.errorhandler(404)

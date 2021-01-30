@@ -3,14 +3,14 @@ import smtplib
 from email.message import EmailMessage
 
 #OMDB API
-apiKey = "423f16fd"
+apiKey = env.API_KEY
 data_URL = 'http://www.omdbapi.com/?apikey='+apiKey
 
 #Mongo DB
-client = MongoClient("mongodb+srv://gatorlorian:60t2b@cluster.5fotp.mongodb.net/Lists?retryWrites=true&w=majority")
+client = MongoClient(env.MONGO_KEY)
 db = client.Lists
 listings = db.Lists
 
 #Email
 server = smtplib.SMTP_SSL('smtp.gmail.com',465)
-server.login('programwithapersonality@gmail.com','imgpxjngepzsoetn')
+server.login(env.EMAIL,env.EMAIL_PW)
