@@ -30,13 +30,11 @@ def getMovieData():
     
 
 @app.route('/createList') #, methods = ['POST'] when form created, add the method
-def createList():
+def createList(json):
     #listName = request.form['name']  #update the form request ids
-    #ownerEmail = request.form['email']
     
     #hard code test data
-    listName = "A Movie Bucket List"
-    ownerEmail = "alexisdoc13@gmail.com"
+    listName = json["listName"]
     
     movies = []
     randID = str(''.join((random.choice(string.ascii_letters + string.digits) for i in range(10))))
