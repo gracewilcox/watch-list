@@ -1,12 +1,13 @@
-import { PageContent, Heading } from 'bumbag'
+import { PageContent, Heading, InputField } from 'bumbag'
 
 const CreateListPage = () => {
     
     return (
       <PageContent>
           <Heading>
-              Hi
+              Create Movie List!
           </Heading>
+          <InputField label="Name of your list" placeholder="Enter list name here ..." />
       </PageContent>
     );
   }
