@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, InputField, PageContent, Heading, Provider as BumbagProvider } from 'bumbag';
 
-function App() {
+const ListPage = () => {
   const [movies, setMovies] = useState(null);
 
   const fetchData = async() => {
@@ -10,15 +10,13 @@ function App() {
   }
 
   return (
-    <BumbagProvider>
-      <PageContent>
+    <PageContent>
         <Heading>
-          Watch List
+            Watch List
         </Heading>
         <InputField label="Add to List" placeholder="Enter the movie here ..." />
-      </PageContent>
-    </BumbagProvider>
+    </PageContent>
   );
 }
 
-export default App;
+export default ListPage;
