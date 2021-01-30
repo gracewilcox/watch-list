@@ -82,6 +82,12 @@ def deleteFromList():
     config.listings.update({"id":ID}, {"$set":{"movies":movies}})
     return "Deleted"
     
+    
+@app.route('/abcd') 
+def testing():
+    ID = "abcd"
+    return "Testing, test test tes" + ID
+    
 
 @app.errorhandler(404)
 def page_not_found(e):
