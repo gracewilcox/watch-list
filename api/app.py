@@ -40,13 +40,9 @@ def createList():
     
     movies = []
     randID = str(''.join((random.choice(string.ascii_letters + string.digits) for i in range(10))))
-    config.listings.insert_one({"id":randID, "name":listName, "ownerEmail":ownerEmail, "movies":movies})
-    SUBJECT = "Your New Watchlist: " + listName
-    TEXT = "Here's the id for your new watchlist: " + randID + "\nHappy Watching!"
-    message = 'Subject: {}\n\n{}'.format(SUBJECT, TEXT)
-    config.server.sendmail('programwithapersonality@gmail.com',ownerEmail,message)
-    #note that email should have link not id and that this needs to be updated
-    return randID + "\n" + listName + " has been created. Share link has been emailed to " + ownerEmail
+    poster = ""
+    config.listings.insert_one({"id":randID, "name":listName, "ownerEmail":ownerEmail, "movies":movies, "poster":poster})
+    return randID 
     
     
 @app.route('/addToList') #, methods = ['POST'] when form created, add the method
@@ -83,10 +79,10 @@ def deleteFromList():
     return "Deleted"
     
     
-@app.route('/abcd') 
-def testing():
-    ID = "abcd"
-    return "Testing, test test tes" + ID
+@app.route('/getListName')
+def getListName(ID):
+    data = config.listings.find_one({"id":ID})
+    return data["name"]
     
 
 @app.errorhandler(404)
