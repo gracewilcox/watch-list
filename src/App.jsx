@@ -9,7 +9,7 @@ function App() {
     <BumbagProvider>
       <Router>
         <Switch>
-          <Route path='/:listId'>
+          <Route path='/list/:listId'>
             <ListPage />
           </Route>
           <Route path='/'>

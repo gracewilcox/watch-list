@@ -16,8 +16,15 @@ const CreateListPage = () => {
           initialValues={{ listName: ''}}
           onSubmit={ (data) => {
             setLoading(true);
-            console.log(data);
-            history.push('/1234')
+            const requestOptions = {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ title: 'Reac'})
+            };
+            fetch('/createList', requestOptions).then(res => res.json()).then(ID => {
+              console.log(ID);
+            });
+            history.push('/list/1234')
             setLoading(false);
           }}
         >
