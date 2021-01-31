@@ -40,7 +40,7 @@ def createList(json):
     randID = str(''.join((random.choice(string.ascii_letters + string.digits) for i in range(10))))
     poster = ""
     config.listings.insert_one({"id":randID, "name":listName, "ownerEmail":ownerEmail, "movies":movies, "poster":poster})
-    return randID 
+    return {'id':randID }
     
     
 @app.route('/addToList') #, methods = ['POST'] when form created, add the method
