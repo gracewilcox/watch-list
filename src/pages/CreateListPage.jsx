@@ -23,7 +23,7 @@ const CreateListPage = () => {
         >
           <Form>
             <FieldStack>
-              <Field component={InputField.Formik} name='listName' label='listName' />
+              <Field component={InputField.Formik} name='listName' label='Type list name in below' />
               <Box alignX='right'>
                 <Button isLoading={loading} type='submit' palette='primary'>
                   Create List
