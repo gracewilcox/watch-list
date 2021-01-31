@@ -1,6 +1,13 @@
 import { PageContent, Heading, InputField } from 'bumbag'
+import React, { useState, useEffect } from 'react';
 
 const CreateListPage = () => {
+	
+	useEffect(() => {
+		fetch('/createList').then(res => res.json()).then(data => {
+			var id = data.id;
+		});
+	}, ["A Wacky List"]);
     
     return (
       <PageContent>
